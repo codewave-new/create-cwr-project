@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
 const openBrowser = require('react-dev-utils/openBrowser');
+const common = require('./webpack.common');
 
 const host = process.env.HOST || 'localhost';
 const port = parseInt(process.env.PORT, 10) || 3000;
