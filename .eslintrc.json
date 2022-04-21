@@ -28,6 +28,16 @@
     "react-hooks/exhaustive-deps": "off",
     "react/jsx-one-expression-per-line": ["error", { "allow": "single-child" }],
     "operator-linebreak": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": [0, { "html": "ignore" }],
+    "arrow-body-style": [
+      "error",
+      "as-needed",
+      { "requireReturnForObjectLiteral": true }
+    ],
+    "no-confusing-arrow": ["error", { "onlyOneSimpleParam": true }],
+    "react/button-has-type": "off",
+    // "plugin:react/jsx-runtime": "extends",
     "comma-dangle": [
       "error",
       {

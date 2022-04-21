@@ -9,8 +9,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    // contentBase: './build',
-    // historyApiFallback: true,
+    historyApiFallback: true,
     hot: true,
     onListening: () => {
       openBrowser(`http://${host}:${port}`);
