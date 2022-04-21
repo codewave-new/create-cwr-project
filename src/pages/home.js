@@ -4,7 +4,6 @@ const Home = () => {
   const [first, setfirst] = useState(0);
   const a = 20;
   const handleClick = () => {
-    console.log('date');
     setfirst((prevState) => prevState + 1);
   };
   return (
