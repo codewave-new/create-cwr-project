@@ -22,6 +22,22 @@
     ],
     "jsx-quotes": ["error", "prefer-single"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/prefer-default-export": "off",
+    "implicit-arrow-linebreak": "off",
+    "default-param-last": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-one-expression-per-line": ["error", { "allow": "single-child" }],
+    "operator-linebreak": "off",
+    "comma-dangle": [
+      "error",
+      {
+        "functions": "never",
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "never",
+        "exports": "never"
+      }
+    ],
     "import/no-extraneous-dependencies": [
       "off",
       {
