@@ -6,9 +6,10 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js ",
     "build": "webpack --config webpack.prod.js",
-    "lint": "eslint -c .eslintrc.js --ext .ts src",
+    "lint": "eslint -c .eslintrc.json --ext .js src",
     "format": "prettier --write .",
-    "start-prod": "rm -rf dist && yarn build && npx -y serve -s dist"
+    "start-prod": "rm -rf build && npm build && npx -y serve -s build",
+    "prepare": "npx husky install"
   },
   "repository": {
     "type": "git",
@@ -36,13 +37,15 @@
     "css-loader": "^6.7.1",
     "eslint": "^8.13.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^7.0.4",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.4.0",
     "prettier": "^2.6.2",
     "react-dev-utils": "^12.0.1",
     "sass-loader": "^12.6.0",
@@ -58,5 +61,11 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sass": "^1.50.1"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "npm run lint",
+      "npm run format"
+    ]
   }
 }
