@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { Logo, RightArrowShort } from '../assets';
 
 const Login = () => {
   const history = useHistory();
@@ -8,9 +9,22 @@ const Login = () => {
     history.push('/');
   };
   return (
-    <div>
-      Login
-      <button onClick={handleLogin}>Login</button>
+    <div className='cwr_homepage_wrapper'>
+      <div className='cwr_header'>
+        <img src={Logo.default} alt='' className='header_logo' />
+        <span>
+          <a href='/'>
+            See Documentation
+            <RightArrowShort.default />
+          </a>
+        </span>
+      </div>
+      <div className='cwr_body'>
+        <div className='cwr_login'>
+          <h1>Authenticate Yourself</h1>
+          <button onClick={handleLogin}>Authenticate</button>
+        </div>
+      </div>
     </div>
   );
 };

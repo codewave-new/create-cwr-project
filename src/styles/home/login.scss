@@ -1,0 +1,33 @@
+.cwr_login {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 70px;
+    line-height: 1.1;
+    letter-spacing: -0.06em;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 30px;
+  }
+  button {
+    //   width: max-content;
+    padding: 0 3.5rem;
+    height: 2.81rem;
+    line-height: 2.8rem;
+    border-radius: 7px;
+    background-color: #0070f3;
+    box-shadow: 0 4px 14px 0 rgba(0, 118, 255, 0.39);
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+  }
+}
