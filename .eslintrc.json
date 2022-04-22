@@ -16,6 +16,7 @@
   "rules": {
     "linebreak-style": "off",
     "spaced-comment": ["error", "always"],
+    "react/jsx-pascal-case": "off",
     "react/function-component-definition": [
       2,
       { "namedComponents": "arrow-function" }

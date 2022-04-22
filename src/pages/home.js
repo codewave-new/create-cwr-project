@@ -1,28 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Logo, RightArrowShort } from '../assets';
+import Licence from '../components/Home/Licence';
 import { appInit } from '../state';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const appStarted = useSelector((state) => state.app.loaded);
-
   useEffect(() => {
     dispatch(appInit(true));
   }, []);
-  const [first, setfirst] = useState(0);
-  const handleClick = () => {
-    setfirst((prevState) => prevState + 1);
-  };
+
   return (
-    <div>
-      <h1>
-        {first}
-        App loaded:
-        {appStarted.toString()}
-      </h1>
-      <button type='button' onClick={handleClick}>
-        add
-      </button>
+    <div className='cwr_homepage_wrapper'>
+      <div className='cwr_header'>
+        <img src={Logo.default} alt='' className='header_logo' />
+        <span>
+          <a href='/'>
+            See Documentation
+            <RightArrowShort.default />
+          </a>
+        </span>
+      </div>
+      <div className='cwr_body'>
+        <div className='body_heading'>
+          <h1>The React Template</h1>
+          <h2>For Codewave</h2>
+        </div>
+        <div className='body_text'>
+          <p>
+            This template gives you the best developer experience with all the
+            features you need to start development quicker:
+            <b> Folder Structure,</b>
+            <b> Routing,</b>
+            <b> Protected Route,</b>
+            <b> Redux,</b>
+            <b> Maintain on Page Reload,</b>
+            <b> Styles (CSS, SCSS). </b>
+            No config needed but if you you want to modify then the limit is
+            upto your imagination
+          </p>
+        </div>
+        <Licence />
+      </div>
     </div>
   );
 };

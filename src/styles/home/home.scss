@@ -1,3 +1,85 @@
 /**
 * A Typical Style file
 */
+
+.cwr_homepage_wrapper {
+  background-color: #fff;
+  min-height: 100vh;
+  .cwr_header {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    .header_logo {
+      width: 200px;
+    }
+    span {
+      display: flex;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      a {
+        color: #fff;
+        margin-right: 8px;
+        text-decoration: none;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        padding-right: 20px;
+        svg {
+          fill: #fff;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .cwr_body {
+    background-color: #fff;
+    min-height: calc(100vh - 69.7px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .body_heading {
+      font-family: 'Poppins', sans-serif;
+      h1 {
+        text-align: center;
+        width: 100%;
+        font-size: 70px;
+        line-height: 1.1;
+        letter-spacing: -0.06em;
+      }
+      h2 {
+        text-align: center;
+        width: 100%;
+        font-size: 70px;
+        line-height: 1.1;
+        letter-spacing: -2px;
+      }
+    }
+    .body_text {
+      width: 70%;
+      margin-top: 30px;
+      p {
+        text-align: center;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: -0.02em;
+        color: #666666;
+        font-family: 'Poppins', sans-serif;
+      }
+    }
+    .cwr_licence {
+      font-family: 'Poppins', sans-serif;
+      margin-top: 60px;
+      color: #666666;
+      a {
+        color: #0070f3;
+        margin-left: 10px;
+        text-decoration: none;
+      }
+    }
+  }
+}
