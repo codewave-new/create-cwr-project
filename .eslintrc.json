@@ -15,7 +15,7 @@
   "plugins": ["react"],
   "rules": {
     "linebreak-style": "off",
-    "spaced-comment": "off",
+    "spaced-comment": ["error", "always"],
     "react/function-component-definition": [
       2,
       { "namedComponents": "arrow-function" }
@@ -37,7 +37,6 @@
     ],
     "no-confusing-arrow": ["error", { "onlyOneSimpleParam": true }],
     "react/button-has-type": "off",
-    // "plugin:react/jsx-runtime": "extends",
     "comma-dangle": [
       "error",
       {

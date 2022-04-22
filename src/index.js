@@ -1,10 +1,16 @@
+// Default Imports
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+
+// Redux Imports
 import { Store } from './state';
-import './styles.scss';
-import './style.css';
+
+// Components Imports
 import NavigationRoutes from './routes';
+
+// Styles Imports
+import './styles/styles.scss';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
