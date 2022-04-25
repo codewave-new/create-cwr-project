@@ -14,7 +14,7 @@ const runCommand = (command) => {
 const repoName = process.argv[2];
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/codewave-new/create-cwr-project ${repoName}`;
 const installDepsCommand = `cd ${repoName} && npm install`;
-const gitInitializeCommand = `cd ${repoName} && rm -r .git && git init`;
+const gitInitializeCommand = `cd ${repoName} && rm -r -f .git && git init`;
 
 console.log(`Cloning the repository with name ${repoName}`);
 const checkedOut = runCommand(gitCheckoutCommand);
