@@ -16,29 +16,20 @@ const gitCheckoutCommand = `git clone --depth 1 https://github.com/codewave-new/
 const installDepsCommand = `cd ${repoName} && npm install`;
 const gitInitializeCommand = `cd ${repoName} && git init`;
 
-console.log(
-  '%cCloning the repository with name ' + `%c${repoName}`,
-  'color: #03579f',
-  'color:#fc4f4f'
-);
+console.log(`Cloning the repository with name ${repoName}`);
 const checkedOut = runCommand(gitCheckoutCommand);
 if (!checkedOut) process.exit(-1);
 
-console.log(
-  `%cInstalling dependencies for ` + `%c${repoName}`,
-  'color: #03579f',
-  'color:#fc4f4f'
-);
+console.log(`Installing dependencies for ${repoName}`);
 const installedDeps = runCommand(installDepsCommand);
 if (!installedDeps) process.exit(-1);
 
-console.log('%cSuccessfully Installed all dependecies.', 'color:#03b0f5');
+console.log('Successfully Installed all dependecies.');
 
 const gitInitialize = runCommand(gitInitializeCommand);
 if (!gitInitialize) process.exit(-1);
 
 console.log(
-  '%cCongratulations! You are ready. Follow the following commands to start',
-  'color:#03b0f5'
+  'Congratulations! You are ready. Follow the following commands to start'
 );
 console.log(`cd ${repoName} && npm start`);
