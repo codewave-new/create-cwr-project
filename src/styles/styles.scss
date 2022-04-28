@@ -2,6 +2,7 @@
 * Global Style file where all index file will be imported
 */
 
+@import './responsive/breakpoints.scss';
 @import './home/index.scss';
 
 body,
