@@ -1,6 +1,6 @@
 {
   "name": "create-cwr-project",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "This Application created by Codewave Technologies",
   "main": "index.js",
   "bin": "./bin/cli.js",
