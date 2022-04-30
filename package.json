@@ -8,7 +8,6 @@
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint -c .eslintrc.json --ext .js src --max-warnings=0",
     "format": "prettier --write .",
-    "start-prod": "rm -rf build && npm run build && npx -y serve -s build",
     "prepare": "npx husky install"
   },
   "repository": {
