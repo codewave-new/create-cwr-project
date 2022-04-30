@@ -13,7 +13,11 @@ const Login = () => {
       <div className='cwr_header'>
         <img src={Logo.default} alt='' className='header_logo' />
         <span>
-          <a href='/'>
+          <a
+            href='https://cwrdocs.vercel.app'
+            target='_blank'
+            rel='noreferrer noopener'
+          >
             See Documentation
             <RightArrowShort.default />
           </a>
