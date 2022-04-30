@@ -15,7 +15,11 @@ const Home = () => {
       <div className='cwr_header'>
         <img src={Logo.default} alt='' className='header_logo' />
         <span>
-          <a href='/'>
+          <a
+            href='https://cwrdocs.vercel.app'
+            target='_blank'
+            rel='noreferrer noopener'
+          >
             See Documentation
             <RightArrowShort.default />
           </a>
@@ -23,7 +27,10 @@ const Home = () => {
       </div>
       <div className='cwr_body'>
         <div className='body_heading'>
-          <h1>The React Template</h1>
+          <h1>
+            The
+            <span> React Template</span>
+          </h1>
           <h2>For Codewave</h2>
         </div>
         <div className='body_text'>
