@@ -10,7 +10,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({
       verbose: true,
-      //important elsewise minifest.json is deleted
       cleanOnceBeforeBuildPatterns: ['**/*', '!manifest.json'],
     }),
     new HtmlWebpackPlugin({
