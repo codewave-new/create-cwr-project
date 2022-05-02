@@ -14,7 +14,7 @@ const Login = () => {
         <img src={Logo.default} alt='' className='header_logo' />
         <span>
           <a
-            href='https://cwrdocs.vercel.app'
+            href='https://cwrdocs.netlify.app'
             target='_blank'
             rel='noreferrer noopener'
           >
