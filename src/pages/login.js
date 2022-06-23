@@ -1,12 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Logo, RightArrowShort } from '../assets';
 
 const Login = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleLogin = () => {
     localStorage.setItem('TOKEN_NAME', 'someValue');
-    history.push('/');
+    navigate('/');
   };
   return (
     <div className='cwr_homepage_wrapper'>

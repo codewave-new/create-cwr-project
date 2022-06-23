@@ -30,6 +30,7 @@
     "react/jsx-one-expression-per-line": ["error", { "allow": "single-child" }],
     "operator-linebreak": "off",
     "react/prop-types": "off",
+    "no-plusplus": "off",
     "react/jsx-props-no-spreading": [0, { "html": "ignore" }],
     "arrow-body-style": [
       "error",
@@ -37,17 +38,12 @@
       { "requireReturnForObjectLiteral": true }
     ],
     "no-confusing-arrow": ["error", { "onlyOneSimpleParam": true }],
+    "object-curly-newline": ["error", { "multiline": true }],
+    "no-unused-vars": "error",
     "react/button-has-type": "off",
-    "comma-dangle": [
-      "error",
-      {
-        "functions": "never",
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "never",
-        "exports": "never"
-      }
-    ],
+    "function-paren-newline": "off",
+    "react/jsx-wrap-multilines": "off",
+    "comma-dangle": "off",
     "import/no-extraneous-dependencies": [
       "off",
       {
