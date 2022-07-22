@@ -4,9 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 module.exports = {
-  entry: {
-    index: './src/index.js',
-  },
+  entry: { index: './src/index.js' },
   plugins: [
     new CleanWebpackPlugin({
       verbose: true,
@@ -27,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)/i,
+        test: /\.(js|jsx)$/,
         use: ['babel-loader'],
         exclude: /node_modules/,
       },
@@ -49,7 +47,5 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: ['.jsx', '.js'],
-  },
+  resolve: { extensions: ['.jsx', '.js'] },
 };
