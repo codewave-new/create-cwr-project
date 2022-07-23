@@ -2,7 +2,6 @@
  * Global Action File
  */
 
-import * as ActionTypes from './actionTypes';
+import { start } from '../slices/appSlice';
 
-export const appInit = (value) => (dispatch) =>
-  dispatch({ type: ActionTypes.APP_START, payload: value });
+export const appInit = (value) => (dispatch) => dispatch(start(value));

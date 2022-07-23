@@ -1,11 +1,10 @@
-import { createStore, applyMiddleware } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { logger } from 'redux-logger';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { encryptTransform } from 'redux-persist-transform-encrypt';
-import { RootReducers } from '../reducer';
+import { RootReducers } from '../slices';
 
 export const persistConfig = {
   key: 'root',
@@ -27,14 +26,11 @@ export const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, RootReducers);
 
-const composeEnhancers = composeWithDevTools({ trace: true });
-
-const Store = createStore(
-  persistedReducer,
-  process.env.NODE_ENV === 'development'
-    ? composeEnhancers(applyMiddleware(thunk, logger))
-    : applyMiddleware(thunk, logger)
-);
+const Store = configureStore({
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== 'production',
+  middleware: process.env.NODE_ENV !== 'production' ? [thunk, logger] : [thunk],
+});
 
 const persistor = persistStore(Store);
 
