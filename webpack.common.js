@@ -4,7 +4,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 module.exports = {
-  entry: { index: './src/index.js' },
+  entry: {
+    index: './src/index.js',
+  },
   plugins: [
     new CleanWebpackPlugin({
       verbose: true,
@@ -25,17 +27,54 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx)/i,
         use: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'autoprefixer',
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'autoprefixer',
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|ico)$/,
@@ -47,5 +86,7 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: ['.jsx', '.js'] },
+  resolve: {
+    extensions: ['.jsx', '.js'],
+  },
 };
