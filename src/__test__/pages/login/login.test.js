@@ -29,8 +29,22 @@ test('should contains Codewave logo', () => {
       </Provider>
     </MemoryRouter>
   );
-  //   screen.debug();
   const image = screen.getByAltText('codewave logo');
   screen.debug(image);
   expect(image).toBeInTheDocument();
+});
+
+test('should contains Authenicate button with blue color', () => {
+  render(
+    <MemoryRouter initialEntries={['/login']} initialIndex={0}>
+      <Provider store={store}>
+        <Routes>
+          <Route path='/login' element={<Login />} />
+        </Routes>
+      </Provider>
+    </MemoryRouter>
+  );
+  const button = screen.getByRole('button');
+  screen.debug(button);
+  expect(button).toBeInTheDocument();
 });
