@@ -3,8 +3,9 @@ import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Login from '../pages/login';
+import Login from '../../../pages/login';
 
+// Requires to mock the dispatch
 const mockedUdesDispatch = jest.fn();
 jest.mock('react-redux', () => {
   return {
@@ -12,11 +13,13 @@ jest.mock('react-redux', () => {
     useDispatch: () => mockedUdesDispatch,
   };
 });
+
+// Requires to mock the store
 const mockStore = configureMockStore();
 const initialState = {};
 const store = mockStore(initialState);
 
-test('should contains the heading 1', () => {
+test('should contains Codewave logo', () => {
   render(
     <MemoryRouter initialEntries={['/login']} initialIndex={0}>
       <Provider store={store}>
@@ -27,7 +30,7 @@ test('should contains the heading 1', () => {
     </MemoryRouter>
   );
   //   screen.debug();
-  const heading = screen.getByText('Authenticate Yourself');
-  screen.debug(heading);
-  expect(heading).toBeInTheDocument();
+  const image = screen.getByAltText('codewave logo');
+  screen.debug(image);
+  expect(image).toBeInTheDocument();
 });
