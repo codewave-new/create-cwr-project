@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 const { execSync } = require('child_process');
 
+// Color Codes for terminal
 const cyan = '\u001b[1m\u001b[36;1m';
 const reset = '\u001b[0m';
 const red = '\u001b[1m\u001b[31;1m';
 const yellow = '\u001b[1m\u001b[33;1m';
 const blue = '\u001b[1m\u001b[34;1m';
 
+// Function which will run commands
 const runCommand = (command) => {
   try {
     execSync(`${command}`, { stdio: 'inherit' });
@@ -17,24 +19,28 @@ const runCommand = (command) => {
   return true;
 };
 
+// Commands for different steps
 const repoName = process.argv[2];
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/codewave-new/create-cwr-project ${repoName}`;
 const installDepsCommand = `cd ${repoName} && npm install`;
 const gitInitializeCommand = `cd ${repoName} && rm -r -f .git && git init`;
-const huskyCommand = `cd ${repoName} && rm -r -f .git && git init`;
-const huskyPreCommitCommand = `husky add .husky/pre-commit "npm run format && git add . && npm run lint"`;
-const huskyPostMergeCommand = `husky add .husky/post-merge "npm install"`;
+const huskyCommand = `cd ${repoName} && husky install`;
+const huskyPreCommitCommand = `cd ${repoName} && husky add .husky/pre-commit "npm run format && git add . && npm run lint"`;
+const huskyPostMergeCommand = `cd ${repoName} && husky add .husky/post-merge "npm install"`;
 
+// Clone the main repo
 console.log(`Cloning the repository with name ${blue}${repoName}${reset}\n\n`);
 const checkedOut = runCommand(gitCheckoutCommand);
 if (!checkedOut) process.exit(-1);
 
+// Install all the dependencies
 console.log(`Installing dependencies for ${yellow}${repoName}${reset}\n\n`);
 const installedDeps = runCommand(installDepsCommand);
 if (!installedDeps) process.exit(-1);
 
 console.log(`${yellow}Successfully Installed all dependecies.${reset}\n\n`);
 
+// GIT Initialization
 console.log('Setting up GIT for first time usage...\n\n');
 
 const gitInitialize = runCommand(gitInitializeCommand);
@@ -42,13 +48,20 @@ if (!gitInitialize) process.exit(-1);
 
 console.log('GIT setup complete\n\n');
 
+// Husky Initialization
 const huskyInitialize = runCommand(huskyCommand);
 if (!huskyInitialize) process.exit(-1);
 
-runCommand(huskyPreCommitCommand);
-runCommand(huskyPostMergeCommand);
+// Husky configuration
+const huskyPreCommit = runCommand(huskyPreCommitCommand);
+if (!huskyPreCommit) process.exit(-1);
+
+const huskyPostMerge = runCommand(huskyPostMergeCommand);
+if (!huskyPostMerge) process.exit(-1);
+
 console.log('Husky initialized successfully\n\n');
 
+// All done success message
 console.log(
   `${cyan}----------------------------------------------------------------------${reset}\n\n`
 );
