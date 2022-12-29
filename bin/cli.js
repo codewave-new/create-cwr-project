@@ -21,6 +21,9 @@ const repoName = process.argv[2];
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/codewave-new/create-cwr-project ${repoName}`;
 const installDepsCommand = `cd ${repoName} && npm install`;
 const gitInitializeCommand = `cd ${repoName} && rm -r -f .git && git init`;
+const huskyCommand = `cd ${repoName} && rm -r -f .git && git init`;
+const huskyPreCommitCommand = `husky add .husky/pre-commit "npm run format && git add . && npm run lint"`;
+const huskyPostMergeCommand = `husky add .husky/post-merge "npm install"`;
 
 console.log(`Cloning the repository with name ${blue}${repoName}${reset}\n\n`);
 const checkedOut = runCommand(gitCheckoutCommand);
@@ -39,8 +42,21 @@ if (!gitInitialize) process.exit(-1);
 
 console.log('GIT setup complete\n\n');
 
+const huskyInitialize = runCommand(huskyCommand);
+if (!huskyInitialize) process.exit(-1);
+
+runCommand(huskyPreCommitCommand);
+runCommand(huskyPostMergeCommand);
+console.log('Husky initialized successfully\n\n');
+
+console.log(
+  `${cyan}----------------------------------------------------------------------${reset}\n\n`
+);
 console.log(
   `${cyan}Congratulations! You are ready. Follow the following commands to start${reset}\n\n`
+);
+console.log(
+  `${cyan}----------------------------------------------------------------------${reset}\n\n`
 );
 
 console.log(`${cyan}cd${reset} ${repoName}\n\n`);
