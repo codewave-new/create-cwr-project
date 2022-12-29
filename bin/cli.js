@@ -24,9 +24,7 @@ const repoName = process.argv[2];
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/codewave-new/create-cwr-project ${repoName}`;
 const installDepsCommand = `cd ${repoName} && npm install`;
 const gitInitializeCommand = `cd ${repoName} && rm -r -f .git && git init`;
-const huskyCommand = `cd ${repoName} && husky install`;
-const huskyPreCommitCommand = `cd ${repoName} && husky add .husky/pre-commit "npm run format && git add . && npm run lint"`;
-const huskyPostMergeCommand = `cd ${repoName} && husky add .husky/post-merge "npm install"`;
+const huskyCommand = `cd ${repoName} && npm run prepare`;
 
 // Clone the main repo
 console.log(`Cloning the repository with name ${blue}${repoName}${reset}\n\n`);
@@ -51,13 +49,6 @@ console.log('GIT setup complete\n\n');
 // Husky Initialization
 const huskyInitialize = runCommand(huskyCommand);
 if (!huskyInitialize) process.exit(-1);
-
-// Husky configuration
-const huskyPreCommit = runCommand(huskyPreCommitCommand);
-if (!huskyPreCommit) process.exit(-1);
-
-const huskyPostMerge = runCommand(huskyPostMergeCommand);
-if (!huskyPostMerge) process.exit(-1);
 
 console.log('Husky initialized successfully\n\n');
 
