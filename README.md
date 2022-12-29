@@ -18,6 +18,7 @@ CCP (create-cwr-project) is a pre configured React Template with webpack and bab
 - Redux store implemented with Redux Thunk
 - Pre configured with eslint and prettier for maintain coding structure across the systems
 - Pre configured with husky to prevent wrong code to commit into git
+- Pre configured with Jest and React Testing Library for unit testing
 
 ## Installation
 
@@ -53,6 +54,15 @@ For production release:
 
 ```sh
 npm run build
+```
+
+## Test
+It has configured with Jest and React Testing Library. It will automatically create the coverage as well.
+
+command:
+
+```sh
+npm run test
 ```
 
 ## License
