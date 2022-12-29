@@ -11,7 +11,7 @@ const Login = () => {
   return (
     <div className='cwr_homepage_wrapper'>
       <div className='cwr_header'>
-        <img src={Logo.default} alt='' className='header_logo' />
+        <img src={Logo.default} alt='codewave logo' className='header_logo' />
         <span>
           <a
             href='https://cwrdocs.netlify.app'
@@ -25,7 +25,7 @@ const Login = () => {
       </div>
       <div className='cwr_body'>
         <div className='cwr_login'>
-          <h1>Authenticate Yourself</h1>
+          <h1 data-testid='head'>Authenticate Yourself</h1>
           <button onClick={handleLogin}>Authenticate</button>
         </div>
       </div>
